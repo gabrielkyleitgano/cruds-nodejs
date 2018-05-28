@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+<br><br>
+<div class="container">
+	<div class="row">
+		<form action="http://localhost:4000/item/edit/<%= item[0].item_id %>" method="POST" class="col s12">
+			<input type="hidden" name="item_id" value="<%= item[0].item_id %>">
+			<div class="form-group row">
+				<label for="item_name" class="col-2 col-form-label">Item Name</label>
+				<div class="col-10">
+					<input type="text" name="item_name" value="<%= item[0].item_name %>" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="item_desc" class="col-2 col-form-label">Item Description</label>
+				<div class="col-10">
+					<input type="text" name="item_desc" value="<%= item[0].item_desc %>" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="item_qty" class="col-2 col-form-label">Quantity</label>
+				<div class="col-10">
+					<input type="text" name="item_qty" value="<%= item[0].item_qty %>" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="item_price" class="col-2 col-form-label">Price</label>
+				<div class="col-10">
+					<input type="text" name="item_price" value="<%= item[0].item_price %>" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="submit" class="col-2 col-form-label"></label>
+				<div class="col-10">
+					<input type="submit" name="submit" value="Update Item" class="btn btn-success">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<% include ../partials/footer %>

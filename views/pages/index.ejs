@@ -1,0 +1,70 @@
+<% include ../partials/header %>
+<br>
+<div class="container">
+	<div class="col-md-2">
+		<a href="/item/add" class="btn btn-success btn-lg"> + Add New Item</a>	
+	</div>
+	<br>
+	<form action="http://localhost:4000/item/search" method="POST">
+	<div class="input-group col-4 offset-8">
+		<input type="text" name="keyword" class="form-control" placeholder="Search by name...">
+		<div class="input-group-append">
+			<input type="submit" name="submit_search" value="Find" class="btn btn-primary">
+		</div>
+	</div>
+	</form>
+</div>
+<br>
+<div class="container">
+	<div class="col s12">
+	<% if (items.length > 0) { %>
+		<table class="table table-bordered table-striped table-responsive">
+			<thead>
+				<tr>
+					<th style="width: 1%; text-align: center">ID</th>
+					<th style="width: 10%">Item Name</th>
+					<th style="width: 20%">Description</th>
+					<th style="width: 10%">Quantity</th>
+					<th style="width: 10%">Price</th>
+					<th style="width: 10%">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% items.forEach(function(item, index) { %>
+					<tr>
+						<td style="width: 1%; text-align: center"><%= index + 1 %></td>
+						<td stlye="width: 10%"><%= item.item_name %></td>
+						<td stlye="width: 20%"><%= item.item_desc %></td>
+						<td stlye="width: 10%"><%= item.item_qty %></td>
+						<td stlye="width: 10%">&#8369; <%= item.item_price %></td>
+						<td solspan="2" stlye="width: 10%; text-align: center">
+							<a href="/item/edit/<%= item.item_id %>" class="btn btn-success">Edit</a>
+							<a href="/item/delete/<%= item.item_id %>" class="btn btn-danger">Delete</a>
+						</td>
+					</tr>
+				<% }); %>
+			</tbody>
+		</table>
+	<% } else {  %>		
+		<table class="table table-bordered table-striped table-responsive">
+			<thead>
+				<tr>
+					<th style="width: 1%; text-align: center">ID</th>
+					<th style="width: 10%">Item Name</th>
+					<th style="width: 20%">Description</th>
+					<th style="width: 10%">Quantity</th>
+					<th style="width: 10%">Price</th>
+					<th style="width: 10%">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="6">No records found...</td>
+				</tr>
+			</tbody>
+		</table>
+	<% } %>
+	</div>
+</div>
+
+<% include ../partials/footer %>
