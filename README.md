@@ -1,4 +1,4 @@
 # cruds-nodejs
 My first repository
 
-CRUDS using node.js
+CRUDS developed using Node.js, MySQL, Express and EJS
